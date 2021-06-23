@@ -1,0 +1,32 @@
+@import 'src/tokens';
+
+.Hero {
+  // background: linear-gradient(to right, $overwatchMain, rgba($overwatchMain,0));
+  transform: skew(25rad);
+  padding: 0 15px;
+  // height: 70px;
+  &__img-container {
+    width: 70px;
+    height: 84px;
+    border: 3px solid white;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-radius: 7px;
+    background-color: rgba(51,51,51,.75);
+    overflow: hidden;
+    img {
+      height: 100%;
+      width: 100%;
+      transform: skew(-25rad);
+      object-fit: cover;
+    }
+  }
+  &__name {
+    font-size: 2.5em;
+    margin: 0;
+    padding: 15px;
+    text-align: left;
+    color: white;
+    transform: skew(-25rad);
+  }
+}

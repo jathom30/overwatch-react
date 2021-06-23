@@ -1,0 +1,16 @@
+@import 'src/tokens';
+
+.Icon {
+  width: 200px;
+  transform: skew(-10deg);
+  height: 75px;
+  padding: 10px;
+  margin: 10px 0;
+  transition: transform .2s ease;
+  * {
+    fill: $overwatchMain;
+  }
+  &:hover {
+    transform: scale(1.1) skew(-10deg);
+  }
+}
