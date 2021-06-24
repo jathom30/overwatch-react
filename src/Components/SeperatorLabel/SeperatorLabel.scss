@@ -1,0 +1,19 @@
+@import 'src/tokens';
+
+.SeperatorLabel {
+  display: flex;
+  align-items: center;
+  &__wing {
+    height: 2px;
+    width: 100%;
+    background-color: $overwatchMain;
+  }
+  &__label {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+    padding: 0 1rem;
+  }
+}

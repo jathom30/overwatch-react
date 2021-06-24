@@ -8,3 +8,16 @@ export type HeroType = {
   role: string
   slug: string
 }
+
+export type HeroSupplementType = {
+  heroId: number
+  health: number
+  armor?: number
+  shield?: number
+  age: number | string
+  occupation: string
+  base: string
+  affiliation: string
+}
+
+export type FullHeroType = HeroType & HeroSupplementType

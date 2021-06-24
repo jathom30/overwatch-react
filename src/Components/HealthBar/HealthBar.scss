@@ -1,0 +1,27 @@
+@import 'src/tokens';
+
+.HealthBar {
+  $blockHeight: 25px;
+  &__bar {
+    display: flex;
+    flex-wrap: nowrap;
+    transform: skew(-16.4deg);
+  }
+  &__block {
+    margin-right: 3px;
+    height: $blockHeight;
+    width: $blockHeight * 0.5983;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(black,.25);
+    &--health {
+      background-color: $health;
+    }
+    &--shield {
+      background-color: $shield;
+    }
+    &--armor {
+      background-color: $armor;
+    }
+  }
+}

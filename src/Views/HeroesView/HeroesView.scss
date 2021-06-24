@@ -1,0 +1,13 @@
+@import 'src/tokens';
+
+.HeroesView {
+  &__header {
+    text-transform: uppercase;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

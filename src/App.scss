@@ -1,12 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;900&display=swap');
+@import 'src/tokens';
+
 .App {
-  min-height: 100vh;
+  font-family: 'Noto Sans Jp', sans-serif;
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 1rem;
-  &__hero-logo {
-    max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  color: $overwatchMain;
+  &__pages {
+    flex-grow: 1;
+    overflow: auto;
+    max-width: 1200px;
     margin: 0 auto;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+  a {
+    text-decoration: none;
   }
 }

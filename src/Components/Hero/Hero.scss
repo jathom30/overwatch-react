@@ -1,10 +1,15 @@
 @import 'src/tokens';
 
 .Hero {
-  // background: linear-gradient(to right, $overwatchMain, rgba($overwatchMain,0));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  transition: $transition;
+  cursor: pointer;
   transform: skew(25rad);
   padding: 0 15px;
-  // height: 70px;
   &__img-container {
     width: 70px;
     height: 84px;
@@ -19,14 +24,25 @@
       width: 100%;
       transform: skew(-25rad);
       object-fit: cover;
+
     }
   }
   &__name {
-    font-size: 2.5em;
-    margin: 0;
-    padding: 15px;
-    text-align: left;
-    color: white;
-    transform: skew(-25rad);
+    transition: all .3s ease;
+    opacity: 0;
+    font-size: .6em;
+    text-align: center;
+    text-decoration: none;
+    color: $overwatchMain;
+    transition: opacity .3s ease;
+  }
+  &:hover {
+    transform: scale(1.2);
+    .Hero__name {
+      opacity: 1;
+    }
+    .Hero__img-container img {
+      transform: skew(0);
+    }
   }
 }

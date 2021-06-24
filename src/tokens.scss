@@ -4,3 +4,7 @@ $armor: #FFDC31;
 $shield: #72BDEA;
 $overwatchMain: #37454a;
 $overwatchAccent: #ffa000;
+
+// other
+$transition: all .2s cubic-bezier(0.25, 0.1, 0.22, 1.99);
+$boxShadow: 0 5px 13px rgba($overwatchMain, .5);

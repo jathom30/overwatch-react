@@ -1,2 +1,3 @@
 export * from './Home'
-export * from './Heroes'
+export * from './HeroesView'
+export * from './HeroView'

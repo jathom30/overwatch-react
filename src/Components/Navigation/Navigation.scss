@@ -1,0 +1,15 @@
+@import 'src/tokens';
+
+.Navigation {
+  width: 100%;
+  background: rgba(white,.75);
+  padding: 1rem;
+  display: flex;
+  &__link {
+    font-weight: bold;
+    color: $overwatchMain;
+    &--is-active {
+      color: $overwatchAccent;
+    }
+  }
+}

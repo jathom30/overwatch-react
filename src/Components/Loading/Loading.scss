@@ -1,0 +1,125 @@
+@import 'src/tokens';
+
+$height: 30px;
+$width: $height * 1.7328;
+$pad: 2px;
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes rotate {
+  to {
+    transform: rotate(359deg);
+  }
+}
+.Loading {
+  width: $width * 5;
+  height: $width * 5;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__svg {
+    position: absolute;
+    transform: rotate(-90deg);
+  }
+  &__circle {
+    fill: transparent;
+    stroke: white;
+    stroke-width: 6px;
+    animation: rotate 1.5s linear forwards infinite;
+    transform-origin: center center;
+    &--medium {
+      stroke: white;
+      stroke-width: 6px;
+      fill: transparent;
+      opacity: .5;
+      animation: dash 2s ease-out forwards infinite;
+    }
+    &--light {
+      stroke: white;
+      stroke-width: 6px;
+      fill: transparent;
+      opacity: .25;
+    }
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  14% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  64% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.Hexagon {
+  min-width: $width;
+  min-height: $height;
+  background: $overwatchMain;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0);
+  animation-name: grow;
+  animation-timing-function: ease-in-out;
+  animation-direction: forwards;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  &::after {
+    content: '';
+    position: absolute;
+    width: $width;
+    height: $height;
+    transform: rotate(60deg);
+    background: $overwatchMain;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    width: $width;
+    height: $height;
+    transform: rotate(-60deg);
+    background: $overwatchMain;
+  }
+  &--0 {
+    left: -$width / 2 - $pad;
+    top: -$height * 1.5 - $pad;
+  }
+  &--1 {
+    left: $width / 2 + $pad;
+    top: -$height * 1.5 - $pad;
+  }
+  &--5 {
+    left: -$width - $pad * 2;
+  }
+  &--2 {
+    left: $width + $pad * 2;
+  }
+  &--4 {
+    left: -$width / 2 - $pad;
+    top: $height * 1.5 + $pad;
+  }
+  &--3 {
+    left: $width / 2 + $pad;
+    top: $height * 1.5 + $pad;
+  }
+}
+
+.HexagonContainer {
+  position: relative;
+  width: $width;
+  height: $height;
+}
