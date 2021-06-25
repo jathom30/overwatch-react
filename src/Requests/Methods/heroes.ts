@@ -1,10 +1,18 @@
 import requests from '../http'
 
-export const getHeroes = async () =>
-  await requests.get('/heroes')
+const baseUrl = 'https://api.pandascore.co/ow'
 
-export const getHero = async (id: number) =>
-  await requests.get(`/heroes/${id}`)
+export const getHeroes = async () => {
+  fetch(`${baseUrl}/heroes?token=${process.env.REACT_APP_BEARER}`)
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+  return await requests.get('/heroes')
+}
 
-export const getMaps = async () =>
-  await requests.get('/maps')
+export const getHero = async (id: number) => {
+  return await requests.get(`/heroes/${id}`)
+}
+
+export const getMaps = async () => {
+  return await requests.get('/maps')
+}
