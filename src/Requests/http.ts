@@ -24,7 +24,9 @@ const errorHandler = (err: any) => {
 
 const token = process.env.REACT_APP_BEARER
 
-const headers = { Authorization: `Bearer ${token}` }
+const headers = {
+  Authorization: `Bearer ${token}`,
+}
 
 const requests = {
   get: async (path: string, params?: object) => {
