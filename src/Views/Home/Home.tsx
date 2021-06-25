@@ -7,8 +7,10 @@ import './Home.scss'
 export const Home = () => {
   return (
     <div className="Home">
-      <OverwatchText />
+      {/* <OverwatchText /> */}
+      <h1 className="Home__finding-game">Finding game</h1>
       <Loading />
+      <span className="Home__searching">Searching for a game</span>
       <div className="Home__quick-links">
         <Link to="/heroes"><HeroesIcon /></Link>
         <Link to="/maps"><MapsIcon /></Link>

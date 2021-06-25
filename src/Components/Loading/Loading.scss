@@ -27,19 +27,19 @@ $pad: 2px;
   }
   &__circle {
     fill: transparent;
-    stroke: white;
+    stroke: $overwatchMain;
     stroke-width: 6px;
     animation: rotate 1.5s linear forwards infinite;
     transform-origin: center center;
     &--medium {
-      stroke: white;
+      stroke: $overwatchMain;
       stroke-width: 6px;
       fill: transparent;
       opacity: .5;
       animation: dash 2s ease-out forwards infinite;
     }
     &--light {
-      stroke: white;
+      stroke: $overwatchMain;
       stroke-width: 6px;
       fill: transparent;
       opacity: .25;

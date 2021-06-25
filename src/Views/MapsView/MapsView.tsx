@@ -5,13 +5,16 @@ import { MapType } from 'Types'
 import { Link } from 'react-router-dom'
 import './MapsView.scss'
 import { MapLink } from './components'
+import { LoadingView } from 'Views/LoadingView'
 
 export const MapsView = () => {
+  const [isLoading, setIsLoading] = useState(true)
   const [maps, setMaps] = useState<MapType[]>([])
 
   useEffect(() => {
     getMaps().then((res) => {
       setMaps(res.data)
+      setIsLoading(false)
     })
   }, [])
 
@@ -28,35 +31,38 @@ export const MapsView = () => {
       return 0
     })
   }
+
   return (
-    <div className="MapsView">
-      <div className="MapsView__header">
-        <h1>Maps</h1>
+    <LoadingView isLoaded={!isLoading}>
+      <div className="MapsView">
+        <div className="MapsView__header">
+          <h1>Maps</h1>
+        </div>
+        <SeperatorLabel label="Assault" />
+        <div className="MapsView__list">
+          {sortMaps(filteredMapsByMode('assault')).map((map) => (
+            <MapLink map={map} />
+          ))}
+        </div>
+        <SeperatorLabel label="Control" />
+        <div className="MapsView__list">
+          {sortMaps(filteredMapsByMode('control')).map((map) => (
+            <MapLink map={map} />
+          ))}
+        </div>
+        <SeperatorLabel label="Escort" />
+        <div className="MapsView__list">
+          {sortMaps(filteredMapsByMode('escort')).map((map) => (
+            <MapLink map={map} />
+          ))}
+        </div>
+        <SeperatorLabel label="Hybrid" />
+        <div className="MapsView__list">
+          {sortMaps(filteredMapsByMode('hybrid')).map((map) => (
+            <MapLink map={map} />
+          ))}
+        </div>
       </div>
-      <SeperatorLabel label="Assault" />
-      <div className="MapsView__list">
-        {sortMaps(filteredMapsByMode('assault')).map((map) => (
-          <MapLink map={map} />
-        ))}
-      </div>
-      <SeperatorLabel label="Control" />
-      <div className="MapsView__list">
-        {sortMaps(filteredMapsByMode('control')).map((map) => (
-          <MapLink map={map} />
-        ))}
-      </div>
-      <SeperatorLabel label="Escort" />
-      <div className="MapsView__list">
-        {sortMaps(filteredMapsByMode('escort')).map((map) => (
-          <MapLink map={map} />
-        ))}
-      </div>
-      <SeperatorLabel label="Hybrid" />
-      <div className="MapsView__list">
-        {sortMaps(filteredMapsByMode('hybrid')).map((map) => (
-          <MapLink map={map} />
-        ))}
-      </div>
-    </div>
+    </LoadingView>
   )
 }

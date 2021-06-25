@@ -1,0 +1,37 @@
+@import 'src/tokens';
+
+.BackButton {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: .25rem;
+  border-radius: 5rem;
+  cursor: pointer;
+  &__icon {
+    display: flex;
+    align-items: center;
+    background: $overwatchAccent;
+    color: white;
+    padding: .5rem;
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  &__label {
+    padding: 0 .5rem;
+    font-size: 1rem;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    opacity: 0;
+  }
+  &:hover {
+    background: rgba($overwatchAccent,.25);
+    border-color: $overwatchAccent;
+    .BackButton__label {
+      opacity: 1;
+    }
+  }
+}

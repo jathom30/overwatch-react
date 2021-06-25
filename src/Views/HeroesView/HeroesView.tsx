@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getHeroes } from 'Requests'
 import { HeroType } from 'Types/heroes'
+import { LoadingView } from 'Views/LoadingView'
 import './HeroesView.scss'
 
 export const HeroesView = () => {
@@ -35,49 +36,45 @@ export const HeroesView = () => {
     })
   }
   return (
-    <div className="HeroesView">
-      <div className="HeroesView__header">
-        <h1>Heroes</h1>
+    <LoadingView isLoaded={!isLoading}>
+      <div className="HeroesView">
+        <div className="HeroesView__header">
+          <h1>Heroes</h1>
+        </div>
+        <SeperatorLabel label="Tank" />
+        <div className="HeroesView__list">
+          {sortHeroes(filterHeroesByRole('tank')).map((hero) => (
+            <Link
+              key={hero.id}
+              to={`/heroes/${hero.id}`}
+            >
+              <Hero hero={withSupplementalHeroInfo(hero)} />
+            </Link>
+          ))}
+        </div>
+        <SeperatorLabel label="Damage" />
+        <div className="HeroesView__list">
+          {sortHeroes(filterHeroesByRole('damage')).map((hero) => (
+            <Link
+              key={hero.id}
+              to={`/heroes/${hero.id}`}
+            >
+              <Hero hero={withSupplementalHeroInfo(hero)} />
+            </Link>
+          ))}
+        </div>
+        <SeperatorLabel label="Support" />
+        <div className="HeroesView__list">
+          {sortHeroes(filterHeroesByRole('support')).map((hero) => (
+            <Link
+              key={hero.id}
+              to={`/heroes/${hero.id}`}
+            >
+              <Hero hero={withSupplementalHeroInfo(hero)} />
+            </Link>
+          ))}
+        </div>
       </div>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <>
-          <SeperatorLabel label="Tank" />
-          <div className="HeroesView__list">
-            {sortHeroes(filterHeroesByRole('tank')).map((hero) => (
-              <Link
-                key={hero.id}
-                to={`/heroes/${hero.id}`}
-              >
-                <Hero hero={withSupplementalHeroInfo(hero)} />
-              </Link>
-            ))}
-          </div>
-          <SeperatorLabel label="Damage" />
-          <div className="HeroesView__list">
-            {sortHeroes(filterHeroesByRole('damage')).map((hero) => (
-              <Link
-                key={hero.id}
-                to={`/heroes/${hero.id}`}
-              >
-                <Hero hero={withSupplementalHeroInfo(hero)} />
-              </Link>
-            ))}
-          </div>
-          <SeperatorLabel label="Support" />
-          <div className="HeroesView__list">
-            {sortHeroes(filterHeroesByRole('support')).map((hero) => (
-              <Link
-                key={hero.id}
-                to={`/heroes/${hero.id}`}
-              >
-                <Hero hero={withSupplementalHeroInfo(hero)} />
-              </Link>
-            ))}
-          </div>
-        </>
-      )}
-    </div>
+    </LoadingView>
   )
 }

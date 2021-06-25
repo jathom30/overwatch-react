@@ -11,7 +11,7 @@ export const HealthBar: React.FC<{
     const indBlocks = pool / 25
     let blocks: JSX.Element[] = []
     for (let i = 0; i < indBlocks; i++) {
-      blocks.push(<div className={`HealthBar__block HealthBar__block--${type}`} />)
+      blocks.push(<div key={i} className={`HealthBar__block HealthBar__block--${type}`} />)
     }
     return blocks
   } 
