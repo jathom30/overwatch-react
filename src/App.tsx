@@ -5,7 +5,7 @@ import { Home, HeroesView, HeroView } from 'Views'
 import { Navigation } from 'Components'
 import { MapsView } from 'Views/MapsView'
 import { HeroType, MapType } from 'Types'
-import { getHeroes, getMaps } from 'Requests'
+// import { getHeroes, getMaps } from 'Requests'
 
 function App() {
   const [isLoadingHeroes, setIsLoadingHeroes] = useState(true)
