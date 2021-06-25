@@ -26,6 +26,13 @@
     margin-left: auto;
     width: max-content;
   }
+  @media screen and (max-width: 700px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    &__name {
+      font-size: 3rem;
+    }
+  }
 }
 
 .LabelPair {
@@ -42,5 +49,14 @@
   &__value {
     font-size: 1.5rem;
     font-weight: bold;
+  }
+  @media screen and (max-width: 700px) {
+    align-items: flex-end;
+    &__label {
+      font-size: .9rem;
+    }
+    &__value {
+      font-size: 1rem;
+    }
   }
 }
