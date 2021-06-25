@@ -1,23 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { getMaps } from 'Requests'
+import React from 'react'
 import { SeperatorLabel } from 'Components'
 import { MapType } from 'Types'
-import { Link } from 'react-router-dom'
 import './MapsView.scss'
 import { MapLink } from './components'
 import { LoadingView } from 'Views/LoadingView'
 
-export const MapsView = () => {
-  const [isLoading, setIsLoading] = useState(true)
-  const [maps, setMaps] = useState<MapType[]>([])
-
-  useEffect(() => {
-    getMaps().then((res) => {
-      setMaps(res.data)
-      setIsLoading(false)
-    })
-  }, [])
-
+export const MapsView: React.FC<{
+  maps: MapType[]
+  isLoading: boolean
+}> = ({ maps, isLoading }) => {
   // filter by mode
   const filteredMapsByMode = (mode: string) => {
     return maps.filter((map) => map.game_mode.toLowerCase() === mode)
@@ -41,25 +32,25 @@ export const MapsView = () => {
         <SeperatorLabel label="Assault" />
         <div className="MapsView__list">
           {sortMaps(filteredMapsByMode('assault')).map((map) => (
-            <MapLink map={map} />
+            <MapLink key={map.id} map={map} />
           ))}
         </div>
         <SeperatorLabel label="Control" />
         <div className="MapsView__list">
           {sortMaps(filteredMapsByMode('control')).map((map) => (
-            <MapLink map={map} />
+            <MapLink key={map.id} map={map} />
           ))}
         </div>
         <SeperatorLabel label="Escort" />
         <div className="MapsView__list">
           {sortMaps(filteredMapsByMode('escort')).map((map) => (
-            <MapLink map={map} />
+            <MapLink key={map.id} map={map} />
           ))}
         </div>
         <SeperatorLabel label="Hybrid" />
         <div className="MapsView__list">
           {sortMaps(filteredMapsByMode('hybrid')).map((map) => (
-            <MapLink map={map} />
+            <MapLink key={map.id} map={map} />
           ))}
         </div>
       </div>

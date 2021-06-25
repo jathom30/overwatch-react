@@ -17,7 +17,7 @@ const LabelPair: React.FC<{label: string, value: ReactNode}> = ({ label, value }
   )
 }
 
-export const HeroView: React.FC<{}> = ({}) => {
+export const HeroView = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [isLoadingImg, setIsLoadingImg] = useState(true)
   const { heroId } = useParams<{ heroId: string}>()
@@ -29,7 +29,7 @@ export const HeroView: React.FC<{}> = ({}) => {
       setHero(withSupplementalHeroInfo(res.data))
       setIsLoading(false)
     })
-  }, [])
+  }, [heroId])
 
   useEffect(() => {
     if (!hero) return
@@ -80,6 +80,7 @@ export const HeroView: React.FC<{}> = ({}) => {
             <img
               className="HeroView__portrait"
               src={`https://d1u1mce87gyfbn.cloudfront.net/hero/${hero.slug}/full-portrait.png`}
+              alt={`portrait of ${hero.name}`}
             />
           )}
         </div>

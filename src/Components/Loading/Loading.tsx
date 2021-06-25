@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './Loading.scss'
 
 const Hexagon: React.FC<{ number: number }> = ({ number }) => {

@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { HeroesIcon, MapsIcon, OverwatchText } from 'Assets'
+import { HeroesIcon, MapsIcon } from 'Assets'
 import { Loading } from 'Components'
 import './Home.scss'
 
 export const Home = () => {
   return (
     <div className="Home">
-      {/* <OverwatchText /> */}
       <h1 className="Home__finding-game">Finding game</h1>
       <Loading />
       <span className="Home__searching">Searching for a game</span>
