@@ -12,6 +12,6 @@
     Access-Control-Allow-Origin = "*"
 
 [build]
-  command = "yarn build && cd functions/node-fetch && yarn"
+  command = "yarn build"
   functions = "functions"
   publish = "dist"
