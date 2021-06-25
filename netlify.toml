@@ -10,3 +10,8 @@
   for = "/*"
     [headers.values]
     Access-Control-Allow-Origin = "*"
+
+[build]
+  command = "yarn build && cd functions/node-fetch && yarn"
+  functions = "functions"
+  publish = "dist"
