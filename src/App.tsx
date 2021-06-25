@@ -16,14 +16,14 @@ function App() {
 
    // get heroes on load
   useEffect(() => {
-    getHeroes().then((res) => {
-      setHeroes(res.data)
-      setIsLoadingHeroes(false)
-    })
-    getMaps().then((res) => {
-      setMaps(res.data)
-      setIsLoadingMaps(false)
-    })
+    // getHeroes().then((res) => {
+    //   setHeroes(res.data)
+    //   setIsLoadingHeroes(false)
+    // })
+    // getMaps().then((res) => {
+    //   setMaps(res.data)
+    //   setIsLoadingMaps(false)
+    // })
   }, [])
 
   return (
