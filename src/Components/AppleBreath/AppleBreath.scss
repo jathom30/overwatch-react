@@ -31,8 +31,10 @@ $animationTime: 7s;
 
 .AppleBreath {
   background: black;
-  width: $circleRadius * 6;
-  height: $circleRadius * 6;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +43,7 @@ $animationTime: 7s;
     position: relative;
     animation: rotateParent $animationTime / 2 infinite alternate ease-out;
   }
-  &__background {
+  &__blend-overlay {
     position: absolute;
     mix-blend-mode: color;
     background: linear-gradient(45deg, $circleColor, $circleStopColor);

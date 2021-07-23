@@ -11,7 +11,7 @@ export const AppleBreath = () => {
           </div>
         ))}
       </div>
-      <div className="AppleBreath__background" />
+      <div className="AppleBreath__blend-overlay" />
     </div>
   )
 }
