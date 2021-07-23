@@ -1,0 +1,71 @@
+$circleIndexes: 0, 1, 2, 3, 4, 5;
+$circleRadius: 1rem;
+$circleColor: #bbf0df;
+$circleStopColor: #529ca0;
+$animationTime: 7s;
+
+@keyframes rotateParent {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(300deg);
+  }
+}
+
+@keyframes slideAndGrow {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(3) translate(48%);
+  }
+  50% {
+    transform: scale(3) translate(48%);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.AppleBreath {
+  background: black;
+  width: $circleRadius * 6;
+  height: $circleRadius * 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  &__container {
+    position: relative;
+    animation: rotateParent $animationTime / 2 infinite alternate ease-out;
+  }
+  &__background {
+    position: absolute;
+    mix-blend-mode: color;
+    background: linear-gradient(45deg, $circleColor, $circleStopColor);
+    width: 100%;
+    height: 100%;;
+  }
+  &__circle-container {
+    mix-blend-mode: overlay;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @each $index in $circleIndexes {
+      &--#{$index} {
+        transform: rotate(60deg * $index);
+      }
+    }    
+  }
+  &__circle {
+    position: absolute;
+    width: $circleRadius;
+    height: $circleRadius;
+    border-radius: 50%;
+    background: white;
+    opacity: .5;
+    animation: slideAndGrow $animationTime infinite alternate ease-in-out;
+  }
+}
