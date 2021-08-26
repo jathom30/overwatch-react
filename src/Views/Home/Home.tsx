@@ -3,6 +3,7 @@ import React from 'react'
 // import { HeroesIcon, MapsIcon } from 'Assets'
 import { AppleBreath, Loading } from 'Components'
 import './Home.scss'
+import { Cube } from 'Components/Cube'
 
 export const Home = () => {
   return (
@@ -11,6 +12,9 @@ export const Home = () => {
       <Loading />
       <div className="Home__apple-background">
         <AppleBreath />
+      </div>
+      <div className="Home__cubes">
+        <Cube />
       </div>
       {/* <span className="Home__searching">Searching for a game</span>
       <div className="Home__quick-links">

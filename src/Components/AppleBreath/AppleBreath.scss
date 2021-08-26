@@ -1,5 +1,5 @@
 $circleIndexes: 0, 1, 2, 3, 4, 5;
-$circleRadius: 1rem;
+$circleRadius: 2rem;
 $circleColor: #bbf0df;
 $circleStopColor: #529ca0;
 $animationTime: 7s;
@@ -28,6 +28,36 @@ $animationTime: 7s;
   }
 }
 
+@keyframes delayedSlideAndGrow {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(3) translate(48%);
+  }
+  60% {
+    transform: scale(3) translate(48%);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: .35;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 
 .AppleBreath {
   background: black;
@@ -48,7 +78,8 @@ $animationTime: 7s;
     mix-blend-mode: color;
     background: linear-gradient(45deg, $circleColor, $circleStopColor);
     width: 100%;
-    height: 100%;;
+    height: 100%;
+    pointer-events: none;
   }
   &__circle-container {
     mix-blend-mode: overlay;
@@ -69,5 +100,10 @@ $animationTime: 7s;
     background: white;
     opacity: .5;
     animation: slideAndGrow $animationTime infinite alternate ease-in-out;
+    &--phantom {
+      animation: 
+        delayedSlideAndGrow $animationTime infinite forwards ease-in-out,
+        fadeOut $animationTime infinite forwards linear;
+    }
   }
 }

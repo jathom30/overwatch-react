@@ -7,6 +7,7 @@ export const AppleBreath = () => {
       <div className="AppleBreath__container">
         {Array.from({ length: 6}, (v,i) => (
           <div key={i} className={`AppleBreath__circle-container AppleBreath__circle-container--${i}`}>
+            <div className="AppleBreath__circle AppleBreath__circle--phantom" />
             <div className="AppleBreath__circle" />
           </div>
         ))}

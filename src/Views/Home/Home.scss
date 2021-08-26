@@ -48,4 +48,9 @@
     min-width: 8rem;
     min-height: 8rem;
   }
+  &__cubes {
+    width: 200px;
+    height: 200px;
+    perspective: 600px;
+  }
 }
